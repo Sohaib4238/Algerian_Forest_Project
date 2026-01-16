@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Forest Fire Weather Index Predictor</h2>
+        
+        <form action="{{ url_for('predict_datapoint') }}" method="post" class="p-4 shadow bg-white rounded">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Temperature (°C)</label>
+                    <input type="text" class="form-control" name="Temperature" placeholder="e.g. 30" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Relative Humidity (RH)</label>
+                    <input type="text" class="form-control" name="RH" placeholder="e.g. 57" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Wind Speed (Ws)</label>
+                    <input type="text" class="form-control" name="Ws" placeholder="e.g. 18" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Rain (mm)</label>
+                    <input type="text" class="form-control" name="Rain" placeholder="e.g. 0" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">FFMC Index</label>
+                    <input type="text" class="form-control" name="FFMC" placeholder="e.g. 65.7" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">DMC Index</label>
+                    <input type="text" class="form-control" name="DMC" placeholder="e.g. 3.4" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">DC Index</label>
+                    <input type="text" class="form-control" name="DC" placeholder="e.g. 7.6" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">ISI Index</label>
+                    <input type="text" class="form-control" name="ISI" placeholder="e.g. 1.3" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">BUI Index</label>
+                    <input type="text" class="form-control" name="BUI" placeholder="e.g. 3.4" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Classes (0=Not Fire, 1=Fire)</label>
+                    <input type="text" class="form-control" name="Classes" placeholder="e.g. 0" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Region (0=Bejaia, 1=Sidi-Bel Abbes)</label>
+                    <input type="text" class="form-control" name="Region" placeholder="e.g. 0" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Predict FWI</button>
+        </form>
+
+        <div class="mt-4 text-center">
+            <h3>
+                Result: {{ result }}
+            </h3>
+        </div>
+    </div>
+</body>
+</html>
